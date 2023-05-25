@@ -1,0 +1,31 @@
+{
+    "connection": {
+        "URI": "amqp://guest:guest@localhost:5672/",
+        "connectionName": "order-connection",
+        "sleepOnErrorInterval": 5000,
+        "heartbeat": 2000,
+        "connectionTimeout": 5000,
+        "channelPoolSize": 5
+    },
+    "topology": {
+        "exchanges": [
+            {
+                "name": "my_exchange",
+                "type": "direct"
+            }
+        ],
+        "queues": [
+            {
+                "name": "my_queue",
+                "durable": true
+            }
+        ],
+        "bindings": [
+            {
+                "source": "my_exchange",
+                "destination": "my_queue",
+                "routing_key": "my_routing.key"
+            }
+        ]
+    }
+}
