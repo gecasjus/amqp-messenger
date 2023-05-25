@@ -1,11 +1,11 @@
 import { resolve } from "path";
 import { Messenger } from "../lib";
-import { Configuration } from "../lib/configuration";
+import { MessengerConfiguration } from "../lib/messenger/messenger-configuration";
 import { readAndParseJSON } from "../lib/parser";
 
 const { connection, topology } = readAndParseJSON(
   resolve(__dirname, "configuration.json")
-) as ReturnType<() => Configuration>;
+) as ReturnType<() => MessengerConfiguration>;
 
 export const messenger = new Messenger({
   connection,

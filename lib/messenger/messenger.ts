@@ -1,8 +1,8 @@
-import { Configuration } from "../configuration";
 import { Connection } from "../connection/connection";
 import { ChannelPool } from "../pools/channel-pool";
 import { Topologer } from "../topologer";
 import { Transport } from "../transport/transport";
+import { MessengerConfiguration } from "./messenger-configuration";
 
 interface IMessenger {
   channel: ChannelPool;
@@ -10,7 +10,7 @@ interface IMessenger {
 }
 
 export class Messenger {
-  constructor(private configuration: Configuration) {}
+  constructor(private configuration: MessengerConfiguration) {}
 
   // Returns channel pool and transport used for worker and publisher
   init(): ReturnType<() => IMessenger> {

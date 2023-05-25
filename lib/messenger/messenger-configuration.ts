@@ -1,8 +1,7 @@
-import { Configuration } from "../configuration";
-import { Messenger } from "./messenger";
+import { ConnectionConfiguration } from "../connection/connection-configuration";
+import { Topology } from "../topologer";
 
-export class MessengerConfiguration {
-  static configure(configuration: Configuration): Messenger {
-    return new Messenger(configuration);
-  }
+export interface MessengerConfiguration {
+  connection: ConnectionConfiguration;
+  topology: Topology;
 }
