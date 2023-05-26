@@ -1,6 +1,6 @@
 export interface ConnectionConfiguration {
   URI: string;
-  AppId: string;
+  appId: string;
   connectionID: string;
   sleepOnErrorInterval: number;
   heartbeat: number;

@@ -13,6 +13,7 @@ export class ConnectionHost {
   private readonly connectionID: string;
   private readonly heartbeat: number;
   private readonly connectionTimeout: number;
+  // TODO: implement TLS
   private readonly TLS: any;
 
   constructor(readonly configuration: ConnectionConfiguration) {

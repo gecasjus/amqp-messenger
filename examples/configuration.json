@@ -1,7 +1,8 @@
 {
     "connection": {
         "URI": "amqp://guest:guest@localhost:5672/",
-        "connectionName": "order-connection",
+        "appId": "worker-publisher-app",
+        "connectionName": "connection",
         "sleepOnErrorInterval": 5000,
         "heartbeat": 2000,
         "connectionTimeout": 5000,
