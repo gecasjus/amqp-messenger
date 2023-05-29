@@ -1,0 +1,27 @@
+{
+    "name": "@shared/amqp-messenger",
+    "version": "1.0.0",
+    "description": "Basic AMQP messenger",
+    "main": "lib/es5/index.js",
+    "module": "lib/es6/index.js",
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "amqplib": "^0.10.3",
+        "generic-pool": "^3.9.0"
+    },
+    "files": [
+        "lib",
+        "package.json"
+    ],
+    "devDependencies": {
+        "@types/amqplib": "^0.10.1",
+        "@types/node": "^18.15.11",
+        "@typescript-eslint/eslint-plugin": "^5.58.0",
+        "eslint-config-prettier": "^8.8.0",
+        "eslint-plugin-prettier": "^4.2.1",
+        "nodemon": "^2.0.22",
+        "ts-node": "^10.9.1",
+        "typescript": "^5.0.4"
+    }
+}
