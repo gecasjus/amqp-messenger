@@ -1,17 +1,13 @@
 {
-  "name": "amqp-lib",
+  "name": "@shared/amqp-messenger",
   "version": "1.0.0",
-  "description": "Simple AMQP lib",
-  "main": "index.js",
-  "types": "dist/index.d.ts",
-  "files": [
-    "/dist"
-  ],
+  "description": "Basic AMQP messenger",
+  "main": "lib/es5/index.js",
+  "module": "lib/es6/index.js",
   "scripts": {
-    "start": "nodemon lib/index.ts",
     "start-publisher-app": "nodemon examples/apps/publisher-app.ts",
     "start-worker-app": "nodemon examples/apps/worker-app.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rm -rf dist/lib && tsc && tsc --build tsconfig.es5.json"
   },
   "author": "",
   "license": "ISC",
@@ -19,6 +15,10 @@
     "amqplib": "^0.10.3",
     "generic-pool": "^3.9.0"
   },
+  "files": [
+    "lib",
+    "package.json"
+  ],
   "devDependencies": {
     "@types/amqplib": "^0.10.1",
     "@types/node": "^18.15.11",

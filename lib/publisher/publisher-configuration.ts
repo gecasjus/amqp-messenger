@@ -5,6 +5,6 @@ export interface PublisherConfiguration {
   exchange: string;
   routingKey: string;
   type: string;
-  options?: Options.AssertExchange;
   transport: Transport;
+  options?: Options.AssertExchange;
 }
