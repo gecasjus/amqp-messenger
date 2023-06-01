@@ -1,6 +1,6 @@
 {
-    "name": "@shared/amqp-messenger",
-    "version": "1.0.0",
+    "name": "@gecasjus/amqp-messenger",
+    "version": "0.0.1",
     "description": "Basic AMQP messenger",
     "main": "lib/es5/index.js",
     "module": "lib/es6/index.js",

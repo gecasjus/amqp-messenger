@@ -14,12 +14,14 @@ export class ChannelPool extends Pool<Channel> {
   constructor(args: ChannePoolArgs) {
     super();
 
+    const { size, create, destroy } = args;
+
     this.opts = {
-      max: args.size,
-      min: args.size,
+      max: size,
+      min: size,
     };
 
-    this.fetch({ create: args.create, destroy: args.destroy });
+    this.fetch({ create, destroy });
   }
 
   public async get(): Promise<Channel> {

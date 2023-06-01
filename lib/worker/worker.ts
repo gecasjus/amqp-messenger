@@ -1,20 +1,21 @@
-// worker retry mechanism https://support.huaweicloud.com/intl/en-us/bestpractice-rabbitmq/rabbitmq-bestpractice.pdf
-
 import { ConsumeMessage, Channel } from "amqplib";
 import { WorkerConfiguration } from "./worker-configuration";
 
-type MessageConsumedCallback = (msg: ConsumeMessage | null) => void;
+type MessageConsumeCallback = (msg: ConsumeMessage | null) => void;
 
 export class Worker {
   // worker identification
   private consumerTag: string;
+  private defaultPrefetch = 1;
 
   constructor(private readonly configuration: WorkerConfiguration) {}
 
-  async consume(callback: MessageConsumedCallback) {
-    const { queue, channelPool, options } = this.configuration;
+  async consume(callback: MessageConsumeCallback) {
+    const { queue, channelPool, options, prefetch } = this.configuration;
 
     channelPool.use(async (channel) => {
+      channel.prefetch(prefetch ?? this.defaultPrefetch);
+
       const { consumerTag } = await channel.consume(
         queue,
         (msg) => {
@@ -36,7 +37,7 @@ export class Worker {
   private onMessage(
     msg: ConsumeMessage | null,
     channel: Channel,
-    callback: MessageConsumedCallback
+    callback: MessageConsumeCallback
   ) {
     try {
       if (msg) {
